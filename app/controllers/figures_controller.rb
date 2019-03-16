@@ -36,6 +36,12 @@ class FiguresController < ApplicationController
     redirect "/figures/#{@figure.id}"
   end
 
+  post "/figures/:id" do
+     @landmark = Figure.find(params[:id])
+     @landmark.update(params["figure"])
+     redirect "/figures/#{@landmark.id}"
+  end
+
 
   get "/figures/:id" do
     @figure = Figure.find(params[:id])
